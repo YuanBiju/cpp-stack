@@ -11,4 +11,5 @@ public:
     void pop();
     int peek();
     void display();
+    void reverse();
 };

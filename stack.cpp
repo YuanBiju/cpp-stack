@@ -8,7 +8,7 @@ Stack::Stack(int _size){
 }
 
 Stack::~Stack(){
-    free(m_arr);
+    delete[] m_arr;
 }
 
 void Stack::push(int _num){
@@ -32,7 +32,10 @@ int Stack::peek(){
         return -1;
     }
 
-    else{std::cout<<m_arr[m_top]<<std::endl;}
+    else{
+        std::cout<<m_arr[m_top]<<std::endl;
+        return m_arr[m_top];
+    }
 }
 
 void Stack::display(){
@@ -46,3 +49,13 @@ void Stack::display(){
     }
 }
 
+void Stack::reverse(){
+    if(m_top == -1){std::cout<<"Stack empty"<<std::endl;}
+    if(m_top!=-1){
+        int x = m_arr[m_top];
+        x = peek();
+        pop();
+        reverse();
+        push(x);
+    }
+}
